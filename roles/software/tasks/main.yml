@@ -1,0 +1,18 @@
+- name: Install software for Kolla dependencies
+  become: yes
+  apt:
+    force_apt_get: yes
+    update_cache: yes
+    state: latest
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - vim
+    - git
+    - python-dev
+    - libffi-dev
+    - gcc
+    - libssl-dev
+    - python-selinux
+    - python-setuptools
+    - python-pip

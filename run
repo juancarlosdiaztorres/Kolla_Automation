@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+PLAYBOOK=$1
+: "${PLAYBOOK:=all-in-one.yml}"
+
+ansible-playbook "${PLAYBOOK}" -i hosts

@@ -1,0 +1,7 @@
+---
+- name: Remove hostname 127.0.1.1 loopback reference
+  become: yes
+  lineinfile:
+      path: /etc/hosts
+      state: absent
+      regexp: '^127.0.1.1'

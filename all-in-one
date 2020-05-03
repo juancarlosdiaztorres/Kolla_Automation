@@ -1,0 +1,12 @@
+---
+- name: Deploy kolla-ansible all-in-one
+  tags: bootstap
+  hosts: 127.0.0.1
+  connection: local
+  gather_facts: yes
+  roles:
+    - update
+    - software
+    - hosts
+    - kolla-provisioner
+    - kolla-allinone
