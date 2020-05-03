@@ -16,45 +16,34 @@
     mode: '0755'
     owner: "{{ ansible_user }}"
     group: "{{ ansible_user }}"
-  when: inventory_hostname in groups['provisioner']
 
-- name: Copy template setup files
+- name: Copy template setup files: passwords
   become: yes
   copy:
-    src: /usr/local/share/kolla-ansible/etc_examples/kolla/
+    src: cp -r /usr/local/share/kolla-ansible/etc_examples/kolla/passwords
     dest: /etc/kolla/
     remote_src: yes
-  when: inventory_hostname in groups['provisioner']
+
+- name: Copy template setup files: inventories
+  become: yes
+  copy:
+    src: cp /usr/local/share/kolla-ansible/ansible/inventory/
+    dest: /etc/kolla/
+    remote_src: yes
+
+- name: Copy template setup files: globals modified
+  become: yes
+  copy:
+    src: cp -r /home/tfm/Desktop/repo/Kolla_Automation/templates/globals.yml 
+    dest: /etc/kolla/
+    remote_src: yes
 
 - name: Generate passwords
   become: yes
   raw: kolla-genpwd
-  when: inventory_hostname in groups['provisioner']
-
-- name: Ensure SSH config file is present
-  file:
-    path: "/home/{{ ansible_user }}/.ssh"
-    state: directory
-    mode: '0755'
-  when: inventory_hostname in groups['provisioner']
-
-- name: Upload SSH config file
-  template:
-    backup: no
-    src: config.j2
-    dest: "/home/{{ ansible_user }}/.ssh/config"
-  when: inventory_hostname in groups['provisioner']
-
-- name: Ensure ansible rc dir is present
-  file:
-    path: "/etc/ansible"
-    state: directory
-    mode: '0755'
-  when: inventory_hostname in groups['provisioner']
 
 - name: Disable host key checking globally for ansible
   template:
     backup: no
-    src: ansible.cfg.j2
+    src: ./templates/ansible.cfg
     dest: "/etc/ansible/ansible.cfg"
-  when: inventory_hostname in groups['provisioner']

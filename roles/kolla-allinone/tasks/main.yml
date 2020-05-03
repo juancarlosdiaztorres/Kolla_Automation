@@ -1,0 +1,7 @@
+- name: Run kolla-ansible
+  raw: "{{ item }}"
+  with_items:
+    - kolla-ansible -i all-in-one bootstrap-servers
+    - kolla-ansible -i all-in-one prechecks
+    - kolla-ansible -i all-in-one deploy
+    - kolla-ansible -i all-in-one post-deploy
