@@ -5,7 +5,7 @@
   connection: local
   gather_facts: yes
   roles:
-    - update
+          #    - update
     - software
     - hosts
     - kolla-provisioner

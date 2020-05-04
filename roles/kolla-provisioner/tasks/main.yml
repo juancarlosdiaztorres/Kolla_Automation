@@ -14,27 +14,25 @@
     path: /etc/kolla/
     state: directory
     mode: '0755'
-    owner: "{{ ansible_user }}"
-    group: "{{ ansible_user }}"
 
-- name: Copy template setup files: passwords
+- name: Copy template setup files, passwords
   become: yes
   copy:
-    src: cp -r /usr/local/share/kolla-ansible/etc_examples/kolla/passwords
+    src: /usr/local/share/kolla-ansible/etc_examples/kolla/passwords
     dest: /etc/kolla/
     remote_src: yes
 
-- name: Copy template setup files: inventories
+- name: Copy template setup files, inventories
   become: yes
   copy:
-    src: cp /usr/local/share/kolla-ansible/ansible/inventory/
+    src: /usr/local/share/kolla-ansible/ansible/inventory/
     dest: /etc/kolla/
     remote_src: yes
 
-- name: Copy template setup files: globals modified
+- name: Copy template setup files, globals modified
   become: yes
   copy:
-    src: cp -r /home/tfm/Desktop/repo/Kolla_Automation/templates/globals.yml 
+    src: /home/tfm/Desktop/repo/Kolla_Automation/templates/globals.yml 
     dest: /etc/kolla/
     remote_src: yes
 
