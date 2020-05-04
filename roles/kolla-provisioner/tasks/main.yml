@@ -18,7 +18,7 @@
 - name: Copy template setup files, passwords
   become: yes
   copy:
-    src: /usr/local/share/kolla-ansible/etc_examples/kolla/passwords
+    src: /usr/local/share/kolla-ansible/etc_examples/kolla/passwords.yml
     dest: /etc/kolla/
     remote_src: yes
 
