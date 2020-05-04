@@ -10,7 +10,6 @@
 
 - name: Setup kolla etc directory
   become: yes
-  sudo: yes
   file:
     path: /etc/kolla/
     state: directory
@@ -42,6 +41,7 @@
   raw: kolla-genpwd
 
 - name: Disable host key checking globally for ansible
+  become: yes
   template:
     backup: no
     src: ./templates/ansible.cfg
