@@ -4,7 +4,7 @@
   become: yes
   pip:
     name:
-    - kolla-ansible=8.0.0
+    - kolla-ansible==8.0.0
     - ansible
     - python-openstackclient
 
