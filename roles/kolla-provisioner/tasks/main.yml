@@ -10,6 +10,7 @@
 
 - name: Setup kolla etc directory
   become: yes
+  sudo: yes
   file:
     path: /etc/kolla/
     state: directory
@@ -25,7 +26,7 @@
 - name: Copy template setup files, inventories
   become: yes
   copy:
-    src: /usr/local/share/kolla-ansible/ansible/inventory/
+    src: /usr/local/share/kolla-ansible/ansible/inventory/all-in-one
     dest: /etc/kolla/
     remote_src: yes
 
