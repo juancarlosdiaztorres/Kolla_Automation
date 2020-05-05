@@ -32,7 +32,7 @@
 - name: Copy template setup files, globals modified
   become: yes
   copy:
-    src: /home/tfm/Desktop/repo/Kolla_Automation/templates/globals.yml 
+    src: ./templates/globals.yml 
     dest: /etc/kolla/
     remote_src: yes
 
