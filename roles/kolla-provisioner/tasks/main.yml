@@ -7,6 +7,7 @@
     - kolla-ansible==8.0.0
     - ansible
     - python-openstackclient
+    executable: pip3
 
 - name: Setup kolla etc directory
   become: yes
