@@ -1,0 +1,9 @@
+#cloud-config
+password: mypasswd
+chpasswd: { expire: False }
+ssh_pwauth: True
+apt:
+	- docker.io
+	- ansible
+	- docker-compose
+	- git
