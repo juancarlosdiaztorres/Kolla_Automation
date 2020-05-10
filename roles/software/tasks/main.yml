@@ -17,4 +17,5 @@
     - python-setuptools
     - python-pip
     - python3-openstackclient
+    - traceroute
     - curl
