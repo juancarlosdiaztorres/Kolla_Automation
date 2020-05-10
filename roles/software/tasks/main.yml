@@ -16,4 +16,5 @@
     - python-selinux
     - python-setuptools
     - python-pip
+    - python3-openstackclient
     - curl
