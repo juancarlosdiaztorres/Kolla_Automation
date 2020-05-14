@@ -100,7 +100,7 @@ network_interface: "ens33"
 # though an IP address can exist on this interface, it will be unusable in most
 # configurations. It is recommended this interface not be configured with any IP
 # addresses for that reason.
-neutron_external_interface: "ens34"
+neutron_external_interface: "ens39"
 
 # Valid options are [ openvswitch, linuxbridge, vmware_nsxv, vmware_nsxv3, vmware_dvs, opendaylight ]
 # if vmware_nsxv3 is selected, enable_openvswitch MUST be set to "no" (default is yes)
@@ -437,7 +437,7 @@ glance_enable_rolling_upgrade: "no"
 #nova_backend_ceph: "{{ enable_ceph }}"
 
 # Valid options are [ qemu, kvm, vmware, xenapi ]
-nova_compute_virt_type: "kvm"
+#nova_compute_virt_type: "kvm"
 
 # The number of fake driver per compute node
 #num_nova_fake_per_node: 5
