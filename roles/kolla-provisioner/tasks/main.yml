@@ -6,7 +6,7 @@
     name:
     - kolla-ansible==8.0.0
     - ansible
-    - python-openstackclient
+      #    - python-openstackclient
 
 - name: Setup kolla etc directory
   become: yes
